@@ -4,6 +4,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
+import EmailIcon from '@material-ui/icons/Email';
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import HomeIcon from "@material-ui/icons/Home";
@@ -12,7 +13,8 @@ const useStyles = makeStyles(theme => ({
   nav: {
     flexGrow: 1,
     position: "sticky",
-    top: 16
+    top: 16,
+    zIndex: 1
   },
   toolbar: {
     justifyContent: "space-between"
@@ -30,18 +32,19 @@ function Navbar() {
             edge="start"
             color="inherit"
             aria-label="menu"
+            href="#"
           >
             <HomeIcon />
           </IconButton>
           <div>
           <Button edge="end" color="inherit" aria-label="menu">
-            Contact
-          </Button>
-          <Button edge="end" color="inherit" aria-label="menu">
             Resume
           </Button>
-          <IconButton edge="end" color="inherit" aria-label="menu">
+          <IconButton edge="end" color="inherit" aria-label="menu" target="_blank"href="https://github.com/GatorDom">
             <GitHubIcon />
+          </IconButton>
+          <IconButton edge="end" color="inherit" aria-label="menu">
+            <EmailIcon />
           </IconButton>
           <IconButton edge="end" color="inherit" aria-label="menu">
             <LinkedInIcon />
