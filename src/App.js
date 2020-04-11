@@ -43,11 +43,10 @@ const useStyles = makeStyles(theme => ({
 
 const bodyText = () => {
   return {
-    lorem: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut leo
-    ligula, tempor nec purus quis, aliquam molestie nulla. Suspendisse
-    vitae nisl nec elit faucibus scelerisque in eu nisi.`,
+    memory: `A simple flashcard application where users can create and save sets to practice with. 
+    I've been personally using it to study Japanese!`,
     pokefind: `Web application to find information on your favorite Pokemon. 
-    Get detailed information on Pokemon, Moves, Abilities, and Types!`,
+    Get detailed information on Pokemon, Moves, Abilities, and Types! The application will take a bit to load since it's hosted on Heroku.`,
     draftmons: `Pokemon meets League of Legends... 
     A website where players can create a room and invite their friends to draft teams against eachother!`
   };
@@ -55,16 +54,34 @@ const bodyText = () => {
 
 const techText = () => {
   return {
-    pokefind: ['HTML/CSS', 'ReactJS', 'ExpressJS', 'MySQL'],
-    draftmons: ['HTML/CSS', 'ReactJS', 'Firebase'],
-    lorem: ['HTML/CSS']
-  }
-}
+    pokefind: ["HTML/CSS", "ReactJS", "ExpressJS", "MySQL"],
+    draftmons: ["HTML/CSS", "ReactJS", "Firebase"],
+    memory: ["HTML/CSS", "ReactJS", "Firebase"]
+  };
+};
+
+const codeText = () => {
+  return {
+    memory: {
+      code: "https://github.com/TokyoDom/memorycards",
+      site: "https://tokyodom.github.io/memorycards/#/"
+    },
+    draftmons: {
+      code: "https://github.com/TokyoDom/draftmons",
+      site: "http://draftmons.com/"
+    },
+    pokefind: {
+      code: "https://github.com/TokyoDom/pokefind",
+      site: "https://thawing-bastion-55951.herokuapp.com/"
+    }
+  };
+};
 
 function App() {
   const classes = useStyles();
   const body = bodyText();
   const tech = techText();
+  const code = codeText();
 
   return (
     <ThemeProvider theme={theme}>
@@ -77,29 +94,39 @@ function App() {
             I'm Dominick, a Developer based in Tokyo, Japan. Check out my
             projects and feel free to contact me! よろしくお願いします！
           </h4>
-          <Button variant="contained" color="secondary" href="#projects">
+          <Button
+            variant="contained"
+            color="secondary"
+            href="#projects"
+            endIcon={<ArrowDropDownIcon />}
+          >
             View Projects
-            <ArrowDropDownIcon />
           </Button>
         </div>
         <div id="projects" className={classes.projects}>
+          <Project
+            project="Memory Cards"
+            img="images/memory.png"
+            body={body.memory}
+            tech={tech.memory}
+            site={code.memory.site}
+            code={code.memory.code}
+          />
           <Project
             project="PokeFind"
             img="images/pokefind.jpg"
             body={body.pokefind}
             tech={tech.pokefind}
-          />
-          <Project
-            project="Cyberpunk"
-            img="images/cyberpunk.jpg"
-            body={body.lorem}
-            tech={tech.lorem}
+            site={code.pokefind.site}
+            code={code.pokefind.code}
           />
           <Project
             project="Draftmons"
             img="images/draft.png"
             body={body.draftmons}
             tech={tech.draftmons}
+            site={code.draftmons.site}
+            code={code.draftmons.code}
           />
         </div>
       </div>
