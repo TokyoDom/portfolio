@@ -10,10 +10,13 @@ import CodeIcon from "@material-ui/icons/Code";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/styles";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   card: {
-    maxWidth: "75vw",
-    marginTop: "10vh"
+    width: "70vw",
+    marginTop: "10vh",
+    [theme.breakpoints.down('md')]: {
+      width: "95vw"
+    }
   },
   title: {
     display: "flex",
@@ -40,7 +43,7 @@ const useStyles = makeStyles({
     borderRadius: 5,
     margin: 4
   }
-});
+}));
 
 function Project({ project, img, body, tech, site, code }) {
   const classes = useStyles();

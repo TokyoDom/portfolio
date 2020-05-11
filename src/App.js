@@ -6,6 +6,10 @@ import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import "./App.css";
 import Navbar from "./Navbar";
 import Project from "./Project";
+import randomizer from './images/randomizer.jpg';
+import memory from './images/memory.png';
+import draft from './images/draft.png';
+import pokefind from './images/pokefind.jpg';
 
 const theme = createMuiTheme({
   palette: {
@@ -43,6 +47,8 @@ const useStyles = makeStyles(theme => ({
 
 const bodyText = () => {
   return {
+    randomizer: `A Pokemon team randomizer using competitive Smogon sets and fun custom sets!
+    Filter based on your favorite generation and tier and export the team to Pokemon Showdown.`,
     memory: `A simple flashcard application where users can create and save sets to practice with. 
     I've been personally using it to study Japanese!`,
     pokefind: `Web application to find information on your favorite Pokemon. 
@@ -54,6 +60,7 @@ const bodyText = () => {
 
 const techText = () => {
   return {
+    randomizer: ["HTML/CSS", "ReactJS", "ExpressJS", "MongoDB"],
     pokefind: ["HTML/CSS", "ReactJS", "ExpressJS", "MySQL"],
     draftmons: ["HTML/CSS", "ReactJS", "Firebase"],
     memory: ["HTML/CSS", "ReactJS", "Firebase"]
@@ -62,6 +69,10 @@ const techText = () => {
 
 const codeText = () => {
   return {
+    randomizer: {
+      code: "https://github.com/TokyoDom/pokerandomizer",
+      site: "https://pokerandomizer.xyz/"
+    },
     memory: {
       code: "https://github.com/TokyoDom/memorycards",
       site: "https://tokyodom.github.io/memorycards/#/"
@@ -104,9 +115,17 @@ function App() {
           </Button>
         </div>
         <div id="projects" className={classes.projects}>
+        <Project
+            project="Pokemon Randomizer"
+            img={randomizer}
+            body={body.randomizer}
+            tech={tech.randomizer}
+            site={code.randomizer.site}
+            code={code.randomizer.code}
+          />
           <Project
             project="Memory Cards"
-            img="images/memory.png"
+            img={memory}
             body={body.memory}
             tech={tech.memory}
             site={code.memory.site}
@@ -114,7 +133,7 @@ function App() {
           />
           <Project
             project="PokeFind"
-            img="images/pokefind.jpg"
+            img={pokefind}
             body={body.pokefind}
             tech={tech.pokefind}
             site={code.pokefind.site}
@@ -122,7 +141,7 @@ function App() {
           />
           <Project
             project="Draftmons"
-            img="images/draft.png"
+            img={draft}
             body={body.draftmons}
             tech={tech.draftmons}
             site={code.draftmons.site}
