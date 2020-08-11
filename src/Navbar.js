@@ -37,7 +37,7 @@ function Navbar() {
               color="inherit"
               aria-label="menu"
               target="_blank"
-              href="https://drive.google.com/file/d/1ZW-RcXkL2pHMHrMt6hTaCyqY3sziLzbO/view?usp=sharing"
+              href="https://drive.google.com/file/d/1qVNG94U8y3PAXkqGnYShrzoB0MQrPp1Z/view?usp=sharing"
             >
               Resume
             </Button>
