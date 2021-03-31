@@ -6,10 +6,7 @@ import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import "./App.css";
 import Navbar from "./Navbar";
 import Project from "./Project";
-import randomizer from './images/randomizer.jpg';
-import memory from './images/memory.png';
-import draft from './images/draft.png';
-import pokefind from './images/pokefind.jpg';
+import entries from "./projects/entries";
 
 const theme = createMuiTheme({
   palette: {
@@ -45,54 +42,8 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const bodyText = () => {
-  return {
-    randomizer: `A Pokemon team randomizer using competitive Smogon sets and fun custom sets!
-    Filter based on your favorite generation and tier and export the team to Pokemon Showdown.`,
-    memory: `A simple flashcard application where users can create and save sets to practice with. 
-    I've been personally using it to study Japanese!`,
-    pokefind: `Web application to find information on your favorite Pokemon. 
-    Get detailed information on Pokemon, Moves, Abilities, and Types! The application will take a bit to load since it's hosted on Heroku.`,
-    draftmons: `Pokemon meets League of Legends... 
-    A website where players can create a room and invite their friends to draft teams against eachother!`
-  };
-};
-
-const techText = () => {
-  return {
-    randomizer: ["HTML/CSS", "ReactJS", "ExpressJS", "MongoDB"],
-    pokefind: ["HTML/CSS", "ReactJS", "ExpressJS", "MySQL"],
-    draftmons: ["HTML/CSS", "ReactJS", "Firebase"],
-    memory: ["HTML/CSS", "ReactJS", "Firebase"]
-  };
-};
-
-const codeText = () => {
-  return {
-    randomizer: {
-      code: "https://github.com/TokyoDom/pokerandomizer",
-      site: "https://pokerandomizer.xyz/"
-    },
-    memory: {
-      code: "https://github.com/TokyoDom/memorycards",
-      site: "https://tokyodom.github.io/memorycards/#/"
-    },
-    draftmons: {
-      code: "https://github.com/TokyoDom/draftmons",
-      site: "http://draftmons.com/"
-    },
-    pokefind: {
-      code: "https://github.com/TokyoDom/pokefind",
-      site: "https://thawing-bastion-55951.herokuapp.com/"
-    }
-  };
-};
-
 function App() {
   const classes = useStyles();
-  const body = bodyText();
-  const tech = techText();
-  const code = codeText();
 
   return (
     <ThemeProvider theme={theme}>
@@ -115,38 +66,16 @@ function App() {
           </Button>
         </div>
         <div id="projects" className={classes.projects}>
-        <Project
-            project="Pokemon Randomizer"
-            img={randomizer}
-            body={body.randomizer}
-            tech={tech.randomizer}
-            site={code.randomizer.site}
-            code={code.randomizer.code}
-          />
-          <Project
-            project="Memory Cards"
-            img={memory}
-            body={body.memory}
-            tech={tech.memory}
-            site={code.memory.site}
-            code={code.memory.code}
-          />
-          <Project
-            project="PokeFind"
-            img={pokefind}
-            body={body.pokefind}
-            tech={tech.pokefind}
-            site={code.pokefind.site}
-            code={code.pokefind.code}
-          />
-          <Project
-            project="Draftmons"
-            img={draft}
-            body={body.draftmons}
-            tech={tech.draftmons}
-            site={code.draftmons.site}
-            code={code.draftmons.code}
-          />
+          {entries.map((entry, i) => 
+          <Project 
+            key={i}
+            project={entry.project}
+            img={entry.img}
+            body={entry.body}
+            tech={entry.tech}
+            site={entry.site}
+            code={entry.code}
+          />)}
         </div>
       </div>
     </ThemeProvider>
